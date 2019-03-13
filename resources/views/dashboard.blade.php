@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    <a href="http://localhost/social-network/public/posts/create" class="btn btn-info">Add Post</a><br>
                     You are logged in!
                 </div>
             </div>
