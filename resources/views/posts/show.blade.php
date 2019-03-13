@@ -11,7 +11,7 @@
 	<div class="card-body">
 
 		{!! $post->body !!} <br>
-		<small>Written on {{ $post->created_at }}</small>
+		<small>Written on <strong> {{ $post->created_at }} </strong> by <strong> {{ $post->user->name }} </strong></small>
 	</div>
 </div>
 <br>
