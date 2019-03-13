@@ -15,6 +15,11 @@
 	</div>
 </div>
 <br>
-	<a href="http://localhost/social-network/public/posts/{{ $post->id }}/edit" class="btn btn-outline-primary" style="width: 20%">Edit</a>
-	<br>
+<div style="display: flex;">
+	<a href="http://localhost/social-network/public/posts/{{ $post->id }}/edit" class="btn btn-outline-primary" style="margin-right: 10px;">Edit</a>
+	{!! Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right']) !!}
+		{!! Form::hidden('_method' , 'DELETE') !!}
+		{!! Form::submit('Delete' , ['class' => 'btn btn-outline-danger']) !!}
+	{!! Form::close() !!}
+	</div>
 @endsection

@@ -100,6 +100,9 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+        return redirect('http://localhost/social-network/public/posts/')->with('success', 'Post Removed');
+
     }
 }
