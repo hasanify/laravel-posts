@@ -25,7 +25,7 @@ class VerificationController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = 'http://localhost/social-network/public/dashboard';
 
     /**
      * Create a new controller instance.
