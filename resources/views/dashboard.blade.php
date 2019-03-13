@@ -19,6 +19,7 @@
             </div>
             <br>
             @if(count($posts) > 0)
+            <h2>Your Posts</h2>
             <table class="table table-striped">
                 <tr>
                     <th>Title</th>

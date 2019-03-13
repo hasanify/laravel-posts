@@ -15,20 +15,9 @@
         <ul class="navbar-nav mr-auto">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="http://localhost/social-network/public/about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="http://localhost/social-network/public/services">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="http://localhost/social-network/public/posts">Posts</a>
+              <a class="nav-link" href="http://localhost/social-network/public/posts"> | Posts</a>
             </li>
           </ul>
-          <ul class="navbar-nav">
-           <li class="nav-item">
-            <a class="nav-link" href="http://localhost/social-network/public/posts/create">Add Post</a>
-          </li>
-        </ul>
       </ul>
 
       <!-- Right Side Of Navbar -->
@@ -51,6 +40,9 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="http://localhost/social-network/public/dashboard">
               Dashboard
+            </a>
+             <a class="dropdown-item" href="http://localhost/social-network/public/posts/create">
+              Add Post
             </a>
             <a class="dropdown-item" href="{{ route('logout') }}"
             onclick="event.preventDefault();

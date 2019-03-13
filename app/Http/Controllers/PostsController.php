@@ -47,12 +47,32 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, ['title' => 'required' , 'body' => 'required']);
+        $this->validate($request, [
+            'title' => 'required' ,
+             'body' => 'required',
+             'cover_image' => 'image|nullable|max:1999']);
+
+        // Handle File Upload
+        if($request->hasFile('cover_image')){
+            $filenameWithExt = $request->file('cover_image')-> getClientOriginalName();
+        // Get filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        // Get extension
+            $extension = $request->file('cover_image')-> getClientOriginalExtension();
+        // Filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+        // Upload Image
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        }
+        else{
+            $fileNameToStore = 'noimage.jpg';
+        }
         // Create Post
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
         $post->user_id = auth()->user()->id;
+        $post->cover_image = $fileNameToStore;
         $post->save();
 
         return redirect('http://localhost/social-network/public/posts')->with('success', 'Post Added');
@@ -79,6 +99,11 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post =  Post::find($id);
+        //Check For Correct User
+        if(auth()->user()->id !== $post->user_id){
+            return redirect('/posts')->with('error', 'Unauthorized user');
+
+        }
         return view('posts.edit')->with('post', $post);
 
     }
@@ -111,6 +136,10 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        if(auth()->user()->id !== $post->user_id){
+            return redirect('/posts')->with('error', 'Unauthorized user');
+
+        }
         $post->delete();
         return redirect('http://localhost/social-network/public/posts/')->with('success', 'Post Removed');
 
