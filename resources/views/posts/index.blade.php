@@ -1,22 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Posts</h1>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ url('/') }}">Index</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Posts</li>
+  </ol>
+</nav>
 @if(count($posts) > 0)
 @foreach($posts as $post)
-<ul class="list-group">
-	<li class="list-group-item" style="background-color: #E3E3E3">
+<div class="card">
+	<div id="head" class="card-header">
 		<h4><a href="posts/{{ $post->id }}">{{ $post->title }}</a></h4>
-		<img src="http://localhost/social-network/storage/app/public/cover_images/{{ $post->cover_image }}" style="width: 30%;" alt=""/>
-		<br>
-		{{ $post->body }} <br>
+	</div>
+		<div class="card-footer">
 		<small>Written on <strong> {{ $post->created_at }} </strong> by <strong> {{ $post->user->name }} </strong></small>
-	</li>
-	<br>
-</ul>
+	</div>
+</div>
+<br>
 @endforeach
 {{ $posts->links() }}
 @else
 <p>No posts found</p>
 @endif
 @endsection
+
+
+

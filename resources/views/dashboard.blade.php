@@ -1,11 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ url('/') }}">Index</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+  </ol>
+</nav>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard <span style="float: right"><a href="http://localhost/social-network/public/posts/create" class="btn btn-primary">Add Post</a><br></span></div>
+                <div class="card-header">Dashboard <i class="fa fa-address-card-o"></i> <span style="float: right"><a href="{{ url('/posts/create') }}" class="btn btn-primary">Add Post</a><br></span></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -22,13 +28,13 @@
             <table class="table table-striped">
                 <tr>
                     <th>Title</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 @foreach($posts as $post)
                 <tr>
-                    <td>{{ $post->title }}</td>
-                    <td><a href="http://localhost/social-network/public/posts/{{ $post->id }}/edit" class="btn btn-primary">Edit</a></td>
+                    <td><a href="{{ url('/posts') }}/{{ $post->id }}">{{ $post->title }}</a></td>
+                    <td><a href="{{ url('/posts') }}{{ $post->id }}/edit" class="btn btn-primary"><i class="fa fa-pencil"></i> Edit</a></td>
                     <td>{!! Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right']) !!}
                         {!! Form::hidden('_method' , 'DELETE') !!}
                         {!! Form::submit('Delete' , ['class' => 'btn btn-danger']) !!}

@@ -1,7 +1,13 @@
 @extends('layouts.app')
 @section('content')
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="http://localhost/social-network/public">Index</a></li>
+    <li class="breadcrumb-item"><a href="http://localhost/social-network/public/posts">Posts</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Add Post</li>
+  </ol>
+</nav>
 <h1>Add Post</h1>
-
 {!! Form::open(['action' => 'PostsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
 <div class="form-group">
 	{{ Form::label('title', 'Title') }}

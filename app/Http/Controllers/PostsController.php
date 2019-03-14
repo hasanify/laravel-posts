@@ -65,7 +65,7 @@ class PostsController extends Controller
             $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
         }
         else{
-            $fileNameToStore = 'noimage.jpg';
+            $fileNameToStore = 'noimage.png';
         }
         // Create Post
         $post = new Post;
@@ -75,7 +75,7 @@ class PostsController extends Controller
         $post->cover_image = $fileNameToStore;
         $post->save();
 
-        return redirect('http://localhost/social-network/public/posts')->with('success', 'Post Added');
+        return redirect('/posts')->with('success', 'Post Added');
     }
 
     /**
@@ -124,7 +124,7 @@ class PostsController extends Controller
         $post->body = $request->input('body');
         $post->save();
 
-        return redirect('http://localhost/social-network/public/posts/'.$id)->with('success', 'Post Updated');
+        return redirect('/posts')->with('success', 'Post Updated');
     }
 
     /**
@@ -141,7 +141,7 @@ class PostsController extends Controller
 
         }
         $post->delete();
-        return redirect('http://localhost/social-network/public/posts/')->with('success', 'Post Removed');
+        return redirect('/posts')->with('success', 'Post Removed');
 
     }
 }
