@@ -12,7 +12,6 @@
     <!-- Scripts -->
     <link rel="shortcut icon" href="http://www.iconarchive.com/download/i87032/graphicloads/colorful-long-shadow/Book.ico">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="{{ asset('js/app.js') }}" defer></script>
         <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -23,10 +22,15 @@
     <style>
         body{
             padding-bottom: 20px;
+            background-image: linear-gradient(to bottom right, skyblue, pink);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
     </style>
 </head>
 <body>
+    <br>
     @include('inc.navbar')
 <div class="container">
 	@include('inc.messages')

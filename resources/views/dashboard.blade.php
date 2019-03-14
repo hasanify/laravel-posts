@@ -25,7 +25,7 @@
             <br>
             @if(count($posts) > 0)
             <h2>Your Posts</h2>
-            <table class="table table-striped">
+            <table class="table table-striped table-light">
                 <tr>
                     <th>Title</th>
                     <th></th>
@@ -33,7 +33,7 @@
                 </tr>
                 @foreach($posts as $post)
                 <tr>
-                    <td><a href="{{ url('/posts') }}/{{ $post->id }}">{{ $post->title }}</a></td>
+                    <td><a href="{{ url('/posts') }}/{{ $post->id }}">{{ $post->title }}</td>
                     <td><a href="{{ url('/posts') }}{{ $post->id }}/edit" class="btn btn-primary"><i class="fa fa-pencil"></i> Edit</a></td>
                     <td>{!! Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right']) !!}
                         {!! Form::hidden('_method' , 'DELETE') !!}
