@@ -29,7 +29,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="scrollWin()">
     <br>
     @include('inc.navbar')
 <div class="container">

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 	<div class="jumbotron text-center" style="margin-top: 10%">
 		<main role="main" class="inner cover">
 			<h2 class="cover-heading">Welcome to </h2><h1><div style="font-weight: bolder; color: #FFCC00">Posts-Project</div></h1>
@@ -13,4 +14,9 @@
 			</p>
 		</main>
 	</div>
+	<script>
+function scrollWin() {
+  window.scrollTo(0, 600);
+}
+</script>
 @endsection
