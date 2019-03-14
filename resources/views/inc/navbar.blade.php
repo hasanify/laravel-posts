@@ -26,7 +26,7 @@
 }
 </style>
 
-<div id="app" style="margin-top: -25px">
+<div id="app">
   <nav class="navbar navbar-expand-md navbar-light navbar-laravel" style="background-color: #404040">
     <div class="container">
       <a class="navbar-brand" href="{{ url('/') }}">

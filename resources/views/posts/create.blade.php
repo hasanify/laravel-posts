@@ -2,8 +2,8 @@
 @section('content')
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="http://localhost/social-network/public">Index</a></li>
-    <li class="breadcrumb-item"><a href="http://localhost/social-network/public/posts">Posts</a></li>
+    <li class="breadcrumb-item"><a href="{{ url('/public/') }}">Index</a></li>
+    <li class="breadcrumb-item"><a href="{{ url('/public/posts') }}">Posts</a></li>
     <li class="breadcrumb-item active" aria-current="page">Add Post</li>
   </ol>
 </nav>
@@ -25,5 +25,4 @@
 {{ Form::submit('Submit', ['class' => 'btn btn-outline-success']) }}
 {!! Form::close() !!}
 @endsection
-<br>
 
