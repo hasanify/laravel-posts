@@ -16,5 +16,4 @@
 {{ Form::submit('Submit', ['class' => 'btn btn-outline-success']) }}
 {!! Form::close() !!}
 @endsection
-<br>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use Auth;
 
 class PostsController extends Controller
 {
@@ -25,6 +26,7 @@ class PostsController extends Controller
     {
         //$posts = Post::where('title', 'Post One')->get();
         //$posts = Post::orderBy('id', 'desc')->get();
+
         $posts = Post::orderBy('id', 'desc')->paginate(5);
         return view('posts.index')->with('posts', $posts);
     }
@@ -87,6 +89,9 @@ class PostsController extends Controller
      */
     public function show($id)
     {
+        if(!Auth::user('id')){
+    return redirect('posts')->with('error', 'Login to view posts.');
+}
         $post =  Post::find($id);
         return view('posts.show')->with('post', $post);
     }

@@ -31,10 +31,10 @@
 	@if(!Auth::guest())
 	@if(Auth::user()->id == $post->user_id)
 	<div style="display: flex;">
-		<a href="{{ url('/posts') }}/{{ $post->id }}/edit" class="btn btn-primary" style="margin-right: 10px;"><i class="fa fa-pencil"></i> Edit</a>
+		<a href="{{ url('/posts') }}/{{ $post->id }}/edit" class="btn btn-outline-primary" style="margin-right: 10px; width: 72px;"> Edit </a>
 		{!! Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right']) !!}
 		{!! Form::hidden('_method' , 'DELETE') !!}
-		{!! Form::submit('Delete'  , ['class' => 'btn btn-danger']) !!}
+		{!! Form::submit('Delete'  , ['class' => 'btn btn-outline-danger']) !!}
 		{!! Form::close() !!}
 	</div>
 	@endif

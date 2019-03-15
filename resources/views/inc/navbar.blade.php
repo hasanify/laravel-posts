@@ -5,33 +5,33 @@
 {
   transition: .3s;
   font-weight: bolder;
-  opacity: 0.8;
+  opacity: 1;
   padding-left: 20px;
 
 }
 .nav-item a:hover
 {
-  opacity: 1;
+  opacity: 0.8;
 }
 .navbar-brand
 {
 
   color : #FFCC00 !important;
-  opacity: 0.8;
+  opacity: 1;
   transition: .3s;
 }
 .navbar-brand:hover
 {
-  opacity: 1;
+  opacity: 0.8;
 }
 </style>
 
 <div id="app">
-  <nav class="navbar navbar-expand-md navbar-light navbar-laravel" style="background-color: #404040">
+  <nav class="navbar bg-dark navbar-expand-md navbar-light navbar-laravel">
     <div class="container">
       <a class="navbar-brand" href="{{ url('/') }}">
         <h3><b>
-          {{ config('app.name', 'Laravel') }} <i class="fa fa-book"></i>
+          <span style="color: white"><</span> {{ config('app.name', 'Laravel') }} <span style="color: white">/></span></i>
         </b></h3>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

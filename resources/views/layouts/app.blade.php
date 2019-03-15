@@ -21,11 +21,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
     body{
-        padding-bottom: 20px;
+        padding-bottom: 80px;
         background-image: linear-gradient(to bottom right, skyblue, pink);
         background-attachment: fixed;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-height: cover;
     }
 /* width */
 ::-webkit-scrollbar {
@@ -52,7 +52,7 @@ a{
 }
 </style>
 </head>
-<body onload="scrollWin()">
+<body style="height: 100%;">
     @include('inc.navbar')
     <div class="container">
        @include('inc.messages')
@@ -62,6 +62,6 @@ a{
 <div style="display: hidden; margin:0 auto;position:fixed;bottom:20px;right:10px;">
     <a href="#top" style=" color: #1f1f1f"><i class="fa fa-3x fa-chevron-circle-up"></i></a>
 </div>
-
+@include('inc.footer')
 </body>
 </html>

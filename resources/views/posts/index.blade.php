@@ -8,6 +8,9 @@
 	</ol>
 </nav>
 @if(count($posts) > 0)
+@if(Auth::guest())
+<div class="alert alert-warning">You must <a href="{{ url('login') }}">login</a> to view posts.</div>
+@endif
 @foreach($posts as $post)
 <div class="card">
 	<div id="head" class="card-header">
@@ -23,10 +26,10 @@
 	@if(Auth::user()->id == $post->user_id)
 	<br>
 	<div style="display: flex; float: right">
-		<a href="{{ url('/posts') }}/{{ $post->id }}/edit" class="btn btn-primary" style="margin-right: 10px;"><i class="fa fa-pencil"></i> Edit</a>
+		<a href="{{ url('/posts') }}/{{ $post->id }}/edit" class="btn btn-outline-primary" style="margin-right: 10px; width: 72px;"> Edit </a>
 		{!! Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right']) !!}
 		{!! Form::hidden('_method' , 'DELETE') !!}
-		{!! Form::submit('Delete'  , ['class' => 'btn btn-danger']) !!}
+		{!! Form::submit('Delete'  , ['class' => 'btn btn-outline-danger']) !!}
 		{!! Form::close() !!}
 			</div>
 		@endif
