@@ -47,6 +47,9 @@
 ::-webkit-scrollbar-thumb:hover {
   opacity: 1; 
 }
+a{
+  text-decoration: none !important;
+}
 </style>
 </head>
 <body onload="scrollWin()">

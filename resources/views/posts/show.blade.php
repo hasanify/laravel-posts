@@ -3,11 +3,11 @@
 @section('content')
 <!--<a href="/social-network/public/posts/" class="btn btn-outline-dark"><i class="fa fa-chevron-left"></i>Go Back</a>-->
 <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{{ url('/') }}">Index</a></li>
-    <li class="breadcrumb-item"><a href="{{ url('/posts') }}">Posts</a></li>
-    <li class="breadcrumb-item active" aria-current="page">{{ $post->id }}</li>
-  </ol>
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="{{ url('/') }}">Index</a></li>
+		<li class="breadcrumb-item"><a href="{{ url('/posts') }}">Posts</a></li>
+		<li class="breadcrumb-item active" aria-current="page">{{ $post->id }}</li>
+	</ol>
 </nav>
 <div class="card">
 	<div id="head" class="card-header">
@@ -15,13 +15,16 @@
 
 	</div>
 	<div class="card-body">
-		<i>
-		<p><img src="{{ url('/storage/cover_images') }}/{{ $post->cover_image }}" style="width: 30%;" alt=""/></p>
-		</i>
-
-		{!! $post->body !!} </div>
+		<p>
+			<img src="{{ url('/storage/cover_images') }}/{{ $post->cover_image }}" 
+			style="width: 30%;" alt=""/>
+		</p>
+		<p>{!! $post->body !!} </p></div>
 		<div class="card-footer">
-			<small>Written on <strong> {{ $post->created_at }} </strong> by <strong> {{ $post->user->name }} </strong></small>
+			<small><strong>{{ date('d F, Y', strtotime($post->created_at)) }}</strong> | <strong> {{ $post->user->name }} </strong></small>
+			@if($post->created_at != $post->updated_at )
+			<small style="float: right;">Edited: <strong>{{ date('d F, Y', strtotime($post->updated_at)) }}</strong></small>
+			@endif
 		</div>
 	</div>
 	<br>

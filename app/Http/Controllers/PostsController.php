@@ -73,6 +73,7 @@ class PostsController extends Controller
         $post->body = $request->input('body');
         $post->user_id = auth()->user()->id;
         $post->cover_image = $fileNameToStore;
+        //$post->updated_at = '';
         $post->save();
 
         return redirect('/posts')->with('success', 'Post Added');
