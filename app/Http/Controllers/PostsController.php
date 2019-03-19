@@ -27,7 +27,7 @@ class PostsController extends Controller
         //$posts = Post::where('title', 'Post One')->get();
         //$posts = Post::orderBy('id', 'desc')->get();
 
-        $posts = Post::orderBy('id', 'desc')->paginate(5);
+        $posts = Post::orderBy('id', 'desc')->paginate(3);
         return view('posts.index')->with('posts', $posts);
     }
 
@@ -39,6 +39,12 @@ class PostsController extends Controller
     public function create()
     {
         return view('posts.create');
+    }
+
+     public function posts()
+    {
+        $posts = Post::orderBy('id', 'desc');
+        return view('posts.posts')->with('posts', $posts);
     }
 
     /**
@@ -75,7 +81,6 @@ class PostsController extends Controller
         $post->body = $request->input('body');
         $post->user_id = auth()->user()->id;
         $post->cover_image = $fileNameToStore;
-        //$post->updated_at = '';
         $post->save();
 
         return redirect('/posts')->with('success', 'Post Added');
@@ -131,6 +136,7 @@ class PostsController extends Controller
         $post->save();
 
         return redirect('/posts')->with('success', 'Post Updated');
+        //return redirect(back())->with('success', 'Post Updated');
     }
 
     /**

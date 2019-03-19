@@ -27,11 +27,12 @@ Route::get('/about', function () {
 //Route::get('/users/{id}', function ($id) {'PagesController@users';});
 
 
-Route::get('/', 'PagesController@index');
-Route::get('users', 'PagesController@users');
-Route::get('about', 'PagesController@about');
-Route::get('services', 'PagesController@services');
+
+Route::get('/posts', function(){
+	return view('posts.posts');
+});
 Route::resource('posts', 'PostsController');
+Route::get('/', 'PostsController@index');
 
 Auth::routes();
 

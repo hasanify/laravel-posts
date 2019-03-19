@@ -24,14 +24,28 @@
 {
   opacity: 0.8;
 }
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
 </style>
 
 <div id="app">
   <nav class="navbar bg-dark navbar-expand-md navbar-light navbar-laravel">
     <div class="container">
       <a class="navbar-brand" href="{{ url('/') }}">
-        <h3><b>
-          <span style="color: white"><</span> {{ config('app.name', 'Laravel') }} <span style="color: white">/></span></i>
+        <h3 style="font-family: 'Righteous', cursive;"><b>
+          <span style="color: white"><</span>{{ config('app.name', 'Laravel') }}<span style="color: white">/></span></i>
         </b></h3>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -48,7 +62,7 @@
         <ul class="navbar-nav ml-auto">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/posts') }}" style="color: #f1f1f1">Posts</a>
+              <a class="nav-link" href="{{ url('/') }}" style="color: #f1f1f1">Home</a>
             </li>
           </ul>
           <!-- Authentication Links -->
